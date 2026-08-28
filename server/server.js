@@ -2,16 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 const connectDB = require('./config/db');
 const notFound = require('./middleware/notFound');
 const errorHandler = require('./middleware/errorHandler');
 const { secureHeaders, sanitizeNoSQL } = require('./middleware/security');
 
 // Load environment variables
-dotenv.config({ path: '../.env' });
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config(); // fallback to current working directory if exists
 
 // Initialize database connection
-connectDB();
+connectDB().catch((err) => {
+  console.error('Initial DB connection error:', err.message);
+});
 
 const app = express();
 const PORT = process.env.PORT || 5000;

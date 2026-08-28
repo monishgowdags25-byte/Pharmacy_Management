@@ -8,17 +8,43 @@ try {
   // Use default system DNS if custom servers cannot be set
 }
 
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
 const connectDB = async () => {
   const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/pharmacare';
   
-  try {
-    const conn = await mongoose.connect(mongoUri);
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-    return conn;
-  } catch (error) {
-    console.error(`MongoDB Connection Error: ${error.message}`);
-    console.log('Ensure your MongoDB server is running. Backend server is continuing in disconnected mode.');
+  if (cached.conn && mongoose.connection.readyState === 1) {
+    return cached.conn;
   }
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+      serverSelectionTimeoutMS: 10000,
+    };
+
+    cached.promise = mongoose.connect(mongoUri, opts).then((mongooseInstance) => {
+      console.log(`MongoDB Connected: ${mongooseInstance.connection.host}`);
+      return mongooseInstance;
+    }).catch((error) => {
+      cached.promise = null;
+      console.error(`MongoDB Connection Error: ${error.message}`);
+      throw error;
+    });
+  }
+
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    throw e;
+  }
+
+  return cached.conn;
 };
 
 module.exports = connectDB;
