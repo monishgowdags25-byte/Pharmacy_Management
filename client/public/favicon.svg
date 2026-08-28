@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="pharmacyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#047857" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Rounded Shield / Base -->
+  <rect x="4" y="4" width="40" height="40" rx="10" fill="url(#pharmacyGrad)" filter="url(#glow)"/>
+  <!-- Medical Pharmacy Cross -->
+  <path d="M20 13h8a2 2 0 0 1 2 2v5h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-5v5a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-5h-5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h5v-5a2 2 0 0 1 2-2z" fill="#ffffff"/>
+  <!-- Center Accent Pill/Heart Sparkle -->
+  <circle cx="24" cy="24" r="3" fill="#10b981"/>
+</svg>
