@@ -30,6 +30,11 @@ const returnItemSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Subtotal is required'],
     min: [0, 'Subtotal cannot be negative']
+  },
+  isDemo: {
+    type: Boolean,
+    default: false,
+    index: true
   }
 }, {
   timestamps: true

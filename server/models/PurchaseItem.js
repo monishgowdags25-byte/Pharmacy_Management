@@ -39,6 +39,11 @@ const purchaseItemSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Total cost is required'],
     min: [0, 'Total cost cannot be negative']
+  },
+  isDemo: {
+    type: Boolean,
+    default: false,
+    index: true
   }
 }, {
   timestamps: true

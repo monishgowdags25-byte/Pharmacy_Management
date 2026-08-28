@@ -4,8 +4,10 @@ import { useToast } from '../context/ToastContext';
 import { 
   Building2, Bell, Receipt, Shield, Activity, 
   Key, Eye, EyeOff, Loader2, Save, CheckCircle2, 
-  RefreshCw, Database, Server, Clock, Lock
+  RefreshCw, Database, Server, Clock, Lock, Sparkles
 } from 'lucide-react';
+import DemoDataButton from '../components/DemoDataButton';
+import demoService from '../services/demoService';
 
 const Settings = () => {
   const { user, changePassword } = useAuth();
@@ -581,6 +583,46 @@ const Settings = () => {
               </div>
               <p className="text-lg font-extrabold text-blue-800">v2.4.0 SaaS</p>
               <span className="text-[10px] text-blue-600 font-medium">PharmaCare Core Engine</span>
+            </div>
+          </div>
+
+          {/* Demo Data Management Deck */}
+          <div className="p-6 bg-slate-50 border border-slate-200 rounded-3xl space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-emerald-600" />
+                  Presentation & Demonstration Engine
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Generate realistic sample datasets across all modules for project presentation, or safely purge demo records.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                <DemoDataButton 
+                  type="all" 
+                  buttonText="Dump All Demo Data" 
+                  variant="primary" 
+                />
+                <button
+                  type="button"
+                  onClick={async () => {
+                    if (window.confirm("Purge all demo data records? Real user data will NOT be deleted.")) {
+                      try {
+                        const res = await demoService.clearDemo();
+                        if (res?.success) {
+                          showToast(res.message || 'Demo records cleared successfully', 'success');
+                        }
+                      } catch (err) {
+                        showToast('Failed to clear demo data', 'error');
+                      }
+                    }
+                  }}
+                  className="px-4 py-2 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-xl transition"
+                >
+                  Clear Demo Data
+                </button>
+              </div>
             </div>
           </div>
         </div>

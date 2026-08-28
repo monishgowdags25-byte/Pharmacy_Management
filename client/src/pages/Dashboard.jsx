@@ -11,6 +11,8 @@ import {
   RotateCcw, DollarSign, Layers, CheckCircle2, ArrowUpRight 
 } from 'lucide-react';
 
+import DemoDataButton from '../components/DemoDataButton';
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const { showToast } = useToast();
@@ -48,8 +50,8 @@ const Dashboard = () => {
     return (
       <div className="flex justify-center items-center py-28 animate-in fade-in">
         <div className="flex flex-col items-center space-y-4">
-          <RefreshCw className="h-10 w-10 text-primary-600 animate-spin" />
-          <p className="text-xs sm:text-sm text-slate-500 font-semibold">Aggregating database statistics...</p>
+          <div className="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-sm font-medium text-slate-500">Loading Pharmacy Analytics...</p>
         </div>
       </div>
     );
@@ -66,19 +68,26 @@ const Dashboard = () => {
           <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Dashboard Overview</h1>
           <p className="text-xs sm:text-sm text-slate-500">Real-time health of your pharmacy warehouse and retail outlet.</p>
         </div>
-        <div className="flex items-center space-x-2.5 sm:space-x-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <DemoDataButton 
+            type="all" 
+            buttonText="Dump All Demo Data" 
+            variant="primary" 
+            onSuccess={fetchDashboardData} 
+          />
+
           <button
             onClick={handleSyncData}
             disabled={syncing}
-            className="flex items-center space-x-2 bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 hover:border-slate-300 font-bold text-xs px-4 sm:px-5 py-2.5 rounded-xl shadow-sm transition active:scale-95 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-primary-500"
+            className="flex items-center space-x-2 bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 hover:border-slate-300 font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition active:scale-95 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-primary-500"
           >
             <RefreshCw className={`h-4 w-4 ${syncing ? 'animate-spin' : ''}`} />
-            <span>{syncing ? 'Syncing...' : 'Sync Data'}</span>
+            <span>{syncing ? 'Syncing...' : 'Sync'}</span>
           </button>
           
           <button
             onClick={() => navigate('/pos')}
-            className="flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs px-4 sm:px-5 py-2.5 rounded-xl shadow-sm shadow-primary-600/20 hover:shadow-primary-600/30 transition active:scale-95 focus-visible:ring-2 focus-visible:ring-primary-500"
+            className="flex items-center space-x-2 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition active:scale-95 focus-visible:ring-2 focus-visible:ring-primary-500"
           >
             <Plus className="h-4 w-4 stroke-[3]" />
             <span>New Sale</span>

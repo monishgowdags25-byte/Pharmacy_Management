@@ -26,7 +26,8 @@ const notificationSchema = new mongoose.Schema({
   entityType: { type: String, trim: true },
   entityId: { type: mongoose.Schema.Types.ObjectId },
   // Deduplication key — same batch/medicine should not create duplicate alerts
-  dedupeKey: { type: String, trim: true, unique: true, sparse: true }
+  dedupeKey: { type: String, trim: true, unique: true, sparse: true },
+  isDemo: { type: Boolean, default: false, index: true }
 }, {
   timestamps: true
 });

@@ -4,6 +4,7 @@ import { useToast } from '../context/ToastContext';
 import {
   Shield, Search, Filter, Loader2, User, Calendar, Tag
 } from 'lucide-react';
+import DemoDataButton from '../components/DemoDataButton';
 
 const ACTION_META = {
   LOGIN:                { label: 'Login',                color: 'bg-emerald-100 text-emerald-700' },
@@ -69,12 +70,20 @@ const AuditLogs = () => {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
-          <Shield className="h-6 w-6 text-primary-600" />
-          Audit Logs
-        </h1>
-        <p className="text-sm text-slate-500">System-wide record of all critical business events.</p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
+            <Shield className="h-6 w-6 text-primary-600" />
+            Audit Logs
+          </h1>
+          <p className="text-sm text-slate-500">System-wide record of all critical business events.</p>
+        </div>
+        <div className="flex items-center">
+          <DemoDataButton 
+            type="audit-logs" 
+            onSuccess={fetchLogs} 
+          />
+        </div>
       </div>
 
       {/* Filters */}

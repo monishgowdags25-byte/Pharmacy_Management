@@ -44,6 +44,11 @@ const inventoryLogSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: [true, 'Staff user signature is required']
+  },
+  isDemo: {
+    type: Boolean,
+    default: false,
+    index: true
   }
 }, {
   timestamps: true

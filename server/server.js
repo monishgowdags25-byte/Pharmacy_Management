@@ -50,6 +50,7 @@ const dashboardRoutes = require('./routes/dashboardRoutes');
 const reportRoutes = require('./routes/reportRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const auditLogRoutes = require('./routes/auditLogRoutes');
+const demoRoutes = require('./routes/demoRoutes');
 
 const requireDB = require('./middleware/dbCheck');
 
@@ -82,6 +83,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/reports', reportRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/audit-logs', auditLogRoutes);
+app.use('/api/demo', demoRoutes);
 
 // Fallback middlewares
 app.use(notFound);

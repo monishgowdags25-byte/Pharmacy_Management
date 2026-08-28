@@ -9,6 +9,7 @@ import {
 import DataTable from '../components/DataTable';
 import SearchFilter from '../components/SearchFilter';
 import Modal from '../components/Modal';
+import DemoDataButton from '../components/DemoDataButton';
 
 const Batches = () => {
   const { showToast } = useToast();
@@ -186,9 +187,17 @@ const Batches = () => {
     <div className="space-y-8 animate-in fade-in duration-500">
       
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Active Batches Catalog</h1>
-        <p className="text-sm text-slate-500">List specific inventory batches, manufacturing codes, and expiry logs.</p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Active Batches Catalog</h1>
+          <p className="text-sm text-slate-500">List specific inventory batches, manufacturing codes, and expiry logs.</p>
+        </div>
+        <div className="flex items-center">
+          <DemoDataButton 
+            type="inventory" 
+            onSuccess={fetchBatches} 
+          />
+        </div>
       </div>
 
       {/* Filter bar */}

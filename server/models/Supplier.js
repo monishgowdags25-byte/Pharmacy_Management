@@ -46,6 +46,11 @@ const supplierSchema = new mongoose.Schema({
     type: String,
     enum: ['Active', 'Inactive'],
     default: 'Active'
+  },
+  isDemo: {
+    type: Boolean,
+    default: false,
+    index: true
   }
 }, {
   timestamps: true
