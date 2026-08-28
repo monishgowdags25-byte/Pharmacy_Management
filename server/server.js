@@ -3,10 +3,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
+const cors = require('cors');
 const connectDB = require('./config/db');
 const notFound = require('./middleware/notFound');
 const errorHandler = require('./middleware/errorHandler');
 const { secureHeaders, sanitizeNoSQL } = require('./middleware/security');
+
+
 
 // Load environment variables
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
@@ -20,6 +23,7 @@ connectDB().catch((err) => {
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(cors());
 // Security HTTP headers
 app.use(secureHeaders);
 
