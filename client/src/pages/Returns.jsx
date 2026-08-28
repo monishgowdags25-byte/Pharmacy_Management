@@ -8,7 +8,6 @@ import {
 } from 'lucide-react';
 import DataTable from '../components/DataTable';
 import Modal from '../components/Modal';
-import DemoDataButton from '../components/DemoDataButton';
 
 const Returns = () => {
   const { showToast } = useToast();
@@ -227,17 +226,9 @@ const Returns = () => {
     <div className="space-y-8 animate-in fade-in duration-500">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Returns & Refunds Register</h1>
-          <p className="text-sm text-slate-500">Process invoice returns, credit customer refund vouchers, and restock batches.</p>
-        </div>
-        <div className="flex items-center">
-          <DemoDataButton 
-            type="returns" 
-            onSuccess={fetchReturns} 
-          />
-        </div>
+      <div>
+        <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Returns & Refunds Register</h1>
+        <p className="text-sm text-slate-500">Process invoice returns, credit customer refund vouchers, and restock batches.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -35,11 +35,6 @@ const expenseSchema = new mongoose.Schema({
     type: Date,
     required: [true, 'Expense date is required'],
     default: Date.now
-  },
-  isDemo: {
-    type: Boolean,
-    default: false,
-    index: true
   }
 }, {
   timestamps: true

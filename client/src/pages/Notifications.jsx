@@ -5,7 +5,6 @@ import {
   Bell, AlertTriangle, Package, Layers, CheckCircle2,
   RefreshCw, Loader2, CheckCheck, Settings
 } from 'lucide-react';
-import DemoDataButton from '../components/DemoDataButton';
 
 const TYPE_META = {
   LOW_STOCK:     { icon: <AlertTriangle className="h-4 w-4" />, bg: 'bg-amber-50',  text: 'text-amber-600',  badge: 'bg-amber-100 text-amber-700',  label: 'Low Stock' },
@@ -88,10 +87,6 @@ const Notifications = () => {
           <p className="text-sm text-slate-500">Stock alerts, expiry warnings, and system messages.</p>
         </div>
         <div className="flex items-center space-x-2 flex-wrap gap-2">
-          <DemoDataButton 
-            type="notifications" 
-            onSuccess={fetchNotifications} 
-          />
           <button onClick={handleMarkAllRead} disabled={unreadCount === 0}
             className="flex items-center space-x-2 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition disabled:opacity-40">
             <CheckCheck className="h-4 w-4" /><span>Mark All Read</span>

@@ -50,11 +50,6 @@ const saleSchema = new mongoose.Schema({
     type: String,
     enum: ['Completed', 'Returned', 'Refunded'],
     default: 'Completed'
-  },
-  isDemo: {
-    type: Boolean,
-    default: false,
-    index: true
   }
 }, {
   timestamps: true

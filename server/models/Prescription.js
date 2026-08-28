@@ -32,11 +32,6 @@ const prescriptionSchema = new mongoose.Schema({
     type: String,
     enum: ['PENDING', 'VERIFIED', 'DISPENSED', 'REJECTED'],
     default: 'PENDING'
-  },
-  isDemo: {
-    type: Boolean,
-    default: false,
-    index: true
   }
 }, {
   timestamps: true

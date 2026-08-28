@@ -9,7 +9,6 @@ import {
 import DataTable from '../components/DataTable';
 import SearchFilter from '../components/SearchFilter';
 import Modal from '../components/Modal';
-import DemoDataButton from '../components/DemoDataButton';
 
 const SalesHistory = () => {
   const { showToast } = useToast();
@@ -140,12 +139,6 @@ const SalesHistory = () => {
         <div>
           <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Sales Registers Ledger</h1>
           <p className="text-sm text-slate-500">Trace cashier retail logs, transaction invoices, and payment stats.</p>
-        </div>
-        <div className="flex items-center">
-          <DemoDataButton 
-            type="sales" 
-            onSuccess={fetchSales} 
-          />
         </div>
       </div>
 

@@ -9,7 +9,6 @@ import {
 import DataTable from '../components/DataTable';
 import SearchFilter from '../components/SearchFilter';
 import Modal from '../components/Modal';
-import DemoDataButton from '../components/DemoDataButton';
 
 const Inventory = () => {
   const { showToast } = useToast();
@@ -270,17 +269,9 @@ const Inventory = () => {
     <div className="space-y-8 animate-in fade-in duration-500">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Inventory Stock Ledger</h1>
-          <p className="text-sm text-slate-500">Trace medicine balances, reorder levels, batches, and timeline logs.</p>
-        </div>
-        <div className="flex items-center">
-          <DemoDataButton 
-            type="inventory" 
-            onSuccess={fetchInventoryData} 
-          />
-        </div>
+      <div>
+        <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Inventory Stock Ledger</h1>
+        <p className="text-sm text-slate-500">Trace medicine balances, reorder levels, batches, and timeline logs.</p>
       </div>
 
       {/* Alert metrics deck */}

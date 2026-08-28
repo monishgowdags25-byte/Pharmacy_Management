@@ -11,11 +11,6 @@ const categorySchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true
-  },
-  isDemo: {
-    type: Boolean,
-    default: false,
-    index: true
   }
 }, {
   timestamps: true

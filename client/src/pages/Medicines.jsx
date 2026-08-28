@@ -11,7 +11,6 @@ import DataTable from '../components/DataTable';
 import SearchFilter from '../components/SearchFilter';
 import Modal from '../components/Modal';
 import ConfirmationDialog from '../components/ConfirmationDialog';
-import DemoDataButton from '../components/DemoDataButton';
 
 const dosageFormOptions = [
   { label: 'All Dosage Forms', value: '' },
@@ -353,21 +352,15 @@ const Medicines = () => {
           <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Medicine Catalogue</h1>
           <p className="text-sm text-slate-500">Add, edit, search, and manage master pharmaceutical formulations.</p>
         </div>
-        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-          <DemoDataButton 
-            type="medicines" 
-            onSuccess={() => { fetchMedicines(); fetchCategories(); }} 
-          />
-          {canEdit && (
-            <button
-              onClick={handleOpenCreateDrawer}
-              className="flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-primary-600/10 hover:shadow-primary-600/25 transition active:scale-95"
-            >
-              <Plus className="h-4.5 w-4.5 stroke-[3]" />
-              <span>Register Medicine</span>
-            </button>
-          )}
-        </div>
+        {canEdit && (
+          <button
+            onClick={handleOpenCreateDrawer}
+            className="flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-primary-600/10 hover:shadow-primary-600/25 transition active:scale-95"
+          >
+            <Plus className="h-4.5 w-4.5 stroke-[3]" />
+            <span>Register Medicine</span>
+          </button>
+        )}
       </div>
 
       {/* Filter Deck */}

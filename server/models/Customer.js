@@ -39,11 +39,6 @@ const customerSchema = new mongoose.Schema({
     type: Number,
     default: 0,
     min: [0, 'Points balance cannot be negative']
-  },
-  isDemo: {
-    type: Boolean,
-    default: false,
-    index: true
   }
 }, {
   timestamps: true

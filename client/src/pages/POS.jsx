@@ -10,7 +10,6 @@ import {
   Loader2, Printer, Plus, Minus, AlertCircle 
 } from 'lucide-react';
 import Modal from '../components/Modal';
-import DemoDataButton from '../components/DemoDataButton';
 
 const POS = () => {
   const { showToast } = useToast();
@@ -293,18 +292,9 @@ const POS = () => {
     <div className="space-y-8 animate-in fade-in duration-500">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Retail POS Billing Register</h1>
-          <p className="text-sm text-slate-500">Search medicines catalog, verify stock expiry, and execute instant checkouts.</p>
-        </div>
-        <div className="flex items-center">
-          <DemoDataButton 
-            type="sales" 
-            buttonText="Dump POS Demo Data"
-            onSuccess={loadCatalogData} 
-          />
-        </div>
+      <div>
+        <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Retail POS Billing Register</h1>
+        <p className="text-sm text-slate-500">Search medicines catalog, verify stock expiry, and execute instant checkouts.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -55,11 +55,6 @@ const batchSchema = new mongoose.Schema({
   reorderLevel: {
     type: Number,
     min: [0, 'Reorder level cannot be negative']
-  },
-  isDemo: {
-    type: Boolean,
-    default: false,
-    index: true
   }
 }, {
   timestamps: true

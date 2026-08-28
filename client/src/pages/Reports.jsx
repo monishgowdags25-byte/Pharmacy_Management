@@ -5,7 +5,6 @@ import {
   BarChart2, ShoppingCart, Package, TrendingUp, Pill,
   Truck, Download, RefreshCw, Loader2
 } from 'lucide-react';
-import DemoDataButton from '../components/DemoDataButton';
 
 /* ─────────── CSV helpers ─────────── */
 const toCSV = (rows, headers) => {
@@ -266,12 +265,7 @@ const Reports = () => {
           <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Business Reports</h1>
           <p className="text-sm text-slate-500">Generate analytics reports across all pharmacy operations.</p>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <DemoDataButton 
-            type="reports" 
-            buttonText="Dump Demo Data"
-            onSuccess={fetchReport} 
-          />
+        <div className="flex items-center space-x-2">
           <button onClick={fetchReport} className="flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md transition active:scale-95">
             <RefreshCw className="h-4 w-4" />
             <span>Generate Report</span>

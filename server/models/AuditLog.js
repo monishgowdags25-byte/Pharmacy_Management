@@ -32,8 +32,7 @@ const auditLogSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
     index: true
-  },
-  isDemo: { type: Boolean, default: false, index: true }
+  }
 }, { timestamps: false });
 
 module.exports = mongoose.model('AuditLog', auditLogSchema);

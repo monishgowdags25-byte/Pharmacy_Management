@@ -6,7 +6,6 @@ import {
   Users as UsersIcon, Plus, Edit, Trash2, 
   X, Check, ShieldAlert, Loader2 
 } from 'lucide-react';
-import DemoDataButton from '../components/DemoDataButton';
 
 const Users = () => {
   const { showToast } = useToast();
@@ -130,19 +129,13 @@ const Users = () => {
           <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Staff Administration</h1>
           <p className="text-sm text-slate-500">Manage user accounts, roles, access permissions and statuses.</p>
         </div>
-        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-          <DemoDataButton 
-            type="users" 
-            onSuccess={fetchUsers} 
-          />
-          <button
-            onClick={handleOpenCreateModal}
-            className="flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-primary-600/10 hover:shadow-primary-600/25 transition active:scale-95"
-          >
-            <Plus className="h-4.5 w-4.5 stroke-[3]" />
-            <span>Add Staff Member</span>
-          </button>
-        </div>
+        <button
+          onClick={handleOpenCreateModal}
+          className="flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-primary-600/10 hover:shadow-primary-600/25 transition active:scale-95"
+        >
+          <Plus className="h-4.5 w-4.5 stroke-[3]" />
+          <span>Add Staff Member</span>
+        </button>
       </div>
 
       {/* Users Grid/Table */}
