@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create central Axios instance (auto-detects local dev vs production on Vercel)
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000/api' : '/api'),
+  baseURL:  'https://pharmacy-management-1-aa6x.onrender.com/api',
   timeout: 15000,
   headers: {
     'Content-Type': 'application/json',
